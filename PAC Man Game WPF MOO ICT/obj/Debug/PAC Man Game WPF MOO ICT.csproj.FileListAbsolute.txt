@@ -1,0 +1,16 @@
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\bin\Debug\PAC Man Game WPF MOO ICT.exe.config
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\bin\Debug\PAC Man Game WPF MOO ICT.exe
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\bin\Debug\PAC Man Game WPF MOO ICT.pdb
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\PAC Man Game WPF MOO ICT.csproj.AssemblyReference.cache
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\PAC Man Game WPF MOO ICT.csproj.SuggestedBindingRedirects.cache
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\MainWindow.g.cs
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\App.g.cs
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\PAC Man Game WPF MOO ICT_MarkupCompile.cache
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\PAC Man Game WPF MOO ICT_MarkupCompile.lref
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\MainWindow.baml
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\PAC Man Game WPF MOO ICT.g.resources
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\PAC_Man_Game_WPF_MOO_ICT.Properties.Resources.resources
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\PAC Man Game WPF MOO ICT.csproj.GenerateResource.cache
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\PAC Man Game WPF MOO ICT.csproj.CoreCompileInputs.cache
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\PAC Man Game WPF MOO ICT.exe
+C:\Users\chidi\source\repos\PAC Man Game WPF MOO ICT\PAC Man Game WPF MOO ICT\obj\Debug\PAC Man Game WPF MOO ICT.pdb
