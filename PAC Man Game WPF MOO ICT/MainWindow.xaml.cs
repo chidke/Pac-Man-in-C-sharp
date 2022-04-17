@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 using System.Windows.Threading;
 
-namespace PAC_Man_Game_WPF_MOO_ICT
+namespace PAC_Man_Game_
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,6 +24,7 @@ namespace PAC_Man_Game_WPF_MOO_ICT
     {
 
         DispatcherTimer gameTimer = new DispatcherTimer();
+     
 
         bool goLeft,goRight,goDown,goUp;
         bool noLeft,noRight,noDown,noUp;
@@ -32,20 +33,28 @@ namespace PAC_Man_Game_WPF_MOO_ICT
 
         Rect pacmanHitBox;                              // Everything from Dispatcher timer to score all the 
                                                         // Variables that need to be defined for the code
+
+       
         int ghostSpeed = 10;
         int ghostMoveStep = 170;
         int currentGhostStep;
         int score = 0;
-       
         
         
         public MainWindow()
         {
+            button1_click();
+
             InitializeComponent();
 
             GameSetUp();                           // Whenever game resets it will call back to game reset up
         }
 
+        private void button1_click()
+        {
+            string text = "Welcome!\n Instructions: You must collect all the coins and fruits to win and try to avoid the ghosts";
+            MessageBox.Show(text);
+        }
         private void CanvasKeyDown(object sender, KeyEventArgs e)
         {
                if (e.Key == Key.Left && noLeft == false)
@@ -93,7 +102,9 @@ namespace PAC_Man_Game_WPF_MOO_ICT
 
         }
 
-        private void GameSetUp()
+       
+
+            private void GameSetUp()
         {
             MyCanvas.Focus();                   // The Canvas Keydown event will register when we press a key
 
@@ -101,6 +112,7 @@ namespace PAC_Man_Game_WPF_MOO_ICT
             gameTimer.Interval = TimeSpan.FromMilliseconds(20); // The clock will tick every millisecond
             gameTimer.Start();       // This starts the timer
             currentGhostStep = ghostMoveStep;
+           
 
             ImageBrush pacmanImage= new ImageBrush();
             pacmanImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/pacman.jpg"));
@@ -118,9 +130,19 @@ namespace PAC_Man_Game_WPF_MOO_ICT
             pinkGhost.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/pink.jpg"));
             pinkGuy.Fill = pinkGhost;
 
-            ImageBrush fruit = new ImageBrush();
-            fruit.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/apple-removebg-preview.png"));
-            apple.Fill = fruit;
+            ImageBrush applefruit = new ImageBrush();
+            applefruit.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/apple-removebg-preview.png"));
+            apple.Fill = applefruit;
+
+            ImageBrush orangefruit = new ImageBrush();
+            orangefruit.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/orange fruit.png"));
+            orange.Fill = orangefruit;
+
+            ImageBrush grapefruit = new ImageBrush();
+            grapefruit.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/grapefruit.png"));
+            grape.Fill = grapefruit;
+
+
         }
 
         private void GameLoop(object sender, EventArgs e)
@@ -148,25 +170,25 @@ namespace PAC_Man_Game_WPF_MOO_ICT
             }
 
 
-            if (goDown && Canvas.GetTop(pacman) + 80 > Application.Current.MainWindow.Height)   // (more) This sets the boundaries for down. the floor starts from 0 when the number gets bigger the floor (boundaries) are elevated
+            if (goDown && Canvas.GetTop(pacman) + 75 > Application.Current.MainWindow.Height)   // (more) This sets the boundaries for down. the floor starts from 0 when the number gets bigger the floor (boundaries) are elevated
             {
                 noDown = true;
                 goDown = false;
             }
 
-            if (goUp && Canvas.GetTop(pacman) < 100)  // (add more to the number)    ^^^ (read the top one)
+            if (goUp && Canvas.GetTop(pacman) < 95)  // (add more to the number)    ^^^ (read the top one)
             {
                 noUp = true;
                 goUp = false;
             }
 
-            if (goLeft && Canvas.GetLeft(pacman) -80< 1) // leave the - and make number bigger  ^^^
+            if (goLeft && Canvas.GetLeft(pacman) -75< 1) // leave the - and make number bigger  ^^^
             {
                 noLeft = true;
                 goLeft = false;
             }
 
-            if (goRight && Canvas.GetLeft(pacman) + 65 > Application.Current.MainWindow.Width)  // less to the number ^^^
+            if (goRight && Canvas.GetLeft(pacman) + 70 > Application.Current.MainWindow.Width)  // less to the number ^^^
             {
                 noRight = true;
                 goRight = false;
@@ -190,7 +212,7 @@ namespace PAC_Man_Game_WPF_MOO_ICT
 
                     if (goRight == true && pacmanHitBox.IntersectsWith(hitBox))
                     {
-                        Canvas.SetLeft(pacman, Canvas.GetLeft(pacman)-10);                          // adds borders to the walls in the game ^^^ VVV
+                        Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) -10);                          // adds borders to the walls in the game ^^^ VVV
                         noRight= true;
                         goLeft = false;
                     }
@@ -213,74 +235,79 @@ namespace PAC_Man_Game_WPF_MOO_ICT
           
                 
                 }
+
             
-                    if ((string) x.Tag =="coin") // x.Tag == "coin" means that all the functions below will affect the coin
-                    {
+
+                if ((string) x.Tag =="coin") // x.Tag == "coin" means that all the functions below will affect the coin
+                {
                         if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible) // This function makes the coins disappear
                         {
                            x.Visibility = Visibility.Hidden;
                            score++;                                    // When the coins disappear the score goes up   //61
-                        }
-                    }
 
-                    if ((string)x.Tag == "fruit") // x.Tag == "fruit" means that all the functions below will affect the fruit
-                    {
-                        if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible) // This function makes the fruits disappear
-                        {
-                        x.Visibility = Visibility.Hidden;
-                       // score++;                                    // When the coins disappear the score goes up   //61
                         }
+
+
+                }
+
+                if ((string)x.Tag == "fruit") // x.Tag == "fruit" means that all the functions below will affect the fruit
+                {
+                    if (pacmanHitBox.IntersectsWith(hitBox) && x.Visibility == Visibility.Visible)
+                    {
+                        do
+                        {
+                            x.Visibility = Visibility.Hidden;
+                            score = score + 10;
+                        }while(score==61);                      //61 is the total number of coins. This loop says to add 10 to the total score each time pacman collects
+                                                                // the fruits & the friuts disapper.
+                        // MyCanvas.Background = Brushes.LightCoral;
+
                     }
+                 
+                
+                }
 
                 if ((string) x.Tag == "ghost")
-                   {  
-                        if (pacmanHitBox.IntersectsWith(hitBox))
-                        {
-                              GameOver("You Lose, Click ok to play again");
-                        }
-                        if (x.Name.ToString() == "orangeGuy")
-                        {
-                               Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
-                        }
+                {
+                    if (pacmanHitBox.IntersectsWith(hitBox))
+                    {
+                             GameOver("Ghost got you, Click ok to play again");
+                    }
+                    if (x.Name.ToString() == "orangeGuy")
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) - ghostSpeed);
+                    }
 
-                        else
-                        {
-                               Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
+                    else
+                    {
+                        Canvas.SetLeft(x, Canvas.GetLeft(x) + ghostSpeed);
 
-                        }
+                    }
 
-                        currentGhostStep--;
+                    currentGhostStep--;
                         
                         if (currentGhostStep < 1)
                         {
                                 currentGhostStep = ghostMoveStep;
-                                ghostSpeed = -ghostSpeed;
+                                ghostSpeed = - ghostSpeed;
                         }
                 
                 
                    }
-                
-            
+
+
             }
 
-                     if (score == 61)
-                     {
-                        GameOver("You Win, You collected all the coins");
-                     }
+            if (score == 91)
+            {
+               
+               GameOver("Contragulations!\n You Won!");
+            }
+           
+        }
+
         
         
-        }
-
-
-        private void PowerUp()
-        {
-
-        }
-
-        private void MakeApple()
-        {
-
-        }
 
         private void GameOver(string message)
         {
